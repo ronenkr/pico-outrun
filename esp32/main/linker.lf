@@ -1,0 +1,10 @@
+# Big zero-initialised static arrays go to PSRAM, as in OpenMotoRacer. The platform layer's own
+# statics and the hot tables stay in internal RAM. Hot functions for IRAM are added in phase 4,
+# after profiling (porter's guide, section 6.6).
+[mapping:outrun_bss]
+archive: libmain.a
+entries:
+    * (extram_bss)
+    esp_audio (default)
+    esp_input (default)
+    esp_render (default)

@@ -428,7 +428,10 @@ void OMusic::blit_music_select()
     // --------------------------------------------------------------------------------------------
     // Blit to Tilemap 16: Widescreen Version. Uses Custom Tilemap. 
     // --------------------------------------------------------------------------------------------
-    if (tilemap->loaded && config.s16_x_off > 0)
+    // picoOutRun: tilemap is only allocated by load_widescreen_map(), which this port never calls, so
+    // it is NULL. Reading ->loaded through it faults on the ESP32-S3 (address 8) and merely reads boot
+    // ROM junk on the RP2350.
+    if (tilemap && tilemap->loaded && config.s16_x_off > 0)
     {
         uint32_t tilemap16 = TILEMAP_RAM_16 - 20;
         src_addr = 0;

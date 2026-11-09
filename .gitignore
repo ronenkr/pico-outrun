@@ -433,3 +433,8 @@ outrun-data*.uf2
 # covered by its licence. The "*.bin" rule near the top would otherwise drop
 # them silently.
 !/cannonball/res/*.bin
+
+# ESP32 port (esp32/): components the IDF component manager downloads
+/esp32/managed_components/
+/esp32/sdkconfig
+/esp32/sdkconfig.old

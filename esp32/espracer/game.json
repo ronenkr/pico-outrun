@@ -1,0 +1,6 @@
+{
+  "name": "OutRun",
+  "description": "Tilt steer, BOOT gas, PWR brake, tap sides to shift. Your own ROMs.",
+  "author": "pico-outrun",
+  "slot": "game2"
+}

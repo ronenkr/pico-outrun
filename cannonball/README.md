@@ -34,6 +34,11 @@ Made so far:
   `static_assert`. Upstream used Boost here solely for compile-time size checks and its own
   comment invites the change; this removes Boost from the port entirely.
 
+- **`src/main/engine/omusic.cpp`** — `blit_music_select()` tests `tilemap` for NULL before reading
+  `tilemap->loaded`. The pointer is only set by `load_widescreen_map()`, which this port never calls.
+  Upstream's unguarded read is harmless on the RP2350 (low addresses are readable boot ROM) but is a
+  null dereference that crashes on the ESP32-S3, on the music-select screen right after Start.
+
 Expected as the port progresses:
 
 - **Large arrays move to flash.** `hwtiles::tiles`, `hwtiles::tiles_backup`,

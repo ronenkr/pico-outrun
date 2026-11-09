@@ -1,0 +1,6 @@
+# pico-outrun's own settings; the chip, PSRAM, caches and the partition table are EspRacer's
+# (sdkconfig.common, partitions.csv)
+
+# The engine's code is C++ without exceptions or RTTI (IDF's defaults); keep it that way.
+CONFIG_COMPILER_CXX_EXCEPTIONS=n
+CONFIG_COMPILER_CXX_RTTI=n
